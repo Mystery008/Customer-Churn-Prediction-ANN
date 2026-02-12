@@ -9,19 +9,20 @@ import pickle
 
 
 # Load the trained model
-model = tf.keras.models.load_model("final_model.h5", compile=False)
+model = tf.keras.models.load_model('final_model.h5')
 
 
+import joblib
 
-# Load the encoders and scaler
-with open('label_encoder_gender.pkl', 'rb') as file:
-    label_encoder_gender = pickle.load(file)
+# Load Label Encoder (Gender)
+label_encoder_gender = joblib.load("label_encoder_gender.joblib")
 
-with open('one_hot_encoder_geo.pkl', 'rb') as file:
-    onehot_encoder_geo = pickle.load(file)
+# Load OneHot Encoder (Geography)
+onehot_encoder_geo = joblib.load("onehot_encoder_geo.joblib")
 
-with open('scaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
+# Load Scaler
+scaler = joblib.load("scaler.joblib")
+
 
 
 ## streamlit app
@@ -73,5 +74,4 @@ if prediction_proba > 0.5:
     st.write('The customer is likely to churn.')
 else:
     st.write('The customer is not likely to churn.')
-
 

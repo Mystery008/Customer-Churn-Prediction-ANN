@@ -1,6 +1,7 @@
 streamlit>=1.30.0
-pandas
+pandas=2.3.3
 scikit-learn
 
 tensorflow==2.13.0
 numpy==1.24.3
+

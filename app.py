@@ -9,7 +9,7 @@ import pickle
 
 
 # Load the trained model
-model = tf.keras.models.load_model("final_model.keras", compile=False)
+model = tf.keras.models.load_model("final_model.h5", compile=False)
 
 
 
@@ -73,4 +73,5 @@ if prediction_proba > 0.5:
     st.write('The customer is likely to churn.')
 else:
     st.write('The customer is not likely to churn.')
+
 
